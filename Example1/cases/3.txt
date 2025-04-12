@@ -1,0 +1,5 @@
+Lewis Math 88 English 92 Science 90
+Sebastian Math 79 English 85 Science 88
+Fernando English 88 Math 91
+Micheal Science 90 English 95
+Nico Math 90 English 75 
