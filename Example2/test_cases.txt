@@ -1,0 +1,96 @@
+Case 1: 
+
+List<String> courses = Arrays.asList("CS101", "CS102", "CS103", "CS104");
+
+List<List<String>> prerequisites = Arrays.asList(
+    Arrays.asList("CS101", "CS102"),
+    Arrays.asList("CS102", "CS103"),
+    Arrays.asList("CS103", "CS104")
+);
+
+Output: [CS101, CS102, CS103, CS104]
+
+Case 2: 
+
+List<String> courses = Arrays.asList("CS101", "CS102", "CS103");
+
+List<List<String>> prerequisites = Arrays.asList(
+    Arrays.asList("CS101", "CS103"),
+    Arrays.asList("CS102", "CS103")
+);
+
+Expected Output: Any of - [CS101, CS102, CS103] or [CS102, CS101, CS103]
+
+Case 3: 
+
+List<String> courses = Arrays.asList();
+
+List<List<String>> prerequisites = Arrays.asList(
+   
+);
+
+Expected Output: []
+
+Case 4: 
+
+List<String> courses = Arrays.asList("CS101", "CS102", "CS103", "CS104");
+
+List<List<String>> prerequisites = Arrays.asList(
+    Arrays.asList("CS101", "CS102"),
+    Arrays.asList("CS101", "CS103"),
+    Arrays.asList("CS102", "CS104"),
+    Arrays.asList("CS103", "CS104")
+);
+
+Output - Possible orders:
+[CS101, CS102, CS103, CS104]
+[CS101, CS103, CS102, CS104]
+(As long as CS101 is before both CS102/CS103 and both of them before CS104)
+
+Case 5:
+
+List<String> courses = Arrays.asList("CS101", "CS102", "CS103");
+
+List<List<String>> prerequisites = Arrays.asList(
+    Arrays.asList("CS101", "CS102"),
+    Arrays.asList("CS102", "CS103"),
+    Arrays.asList("CS103", "CS101")
+);
+
+Output: null
+
+Case 6: 
+
+List<String> courses = Arrays.asList("CS101", "CS102", "CS201", "CS202");
+
+List<List<String>> prerequisites = Arrays.asList(
+    Arrays.asList("CS101", "CS102"),
+    Arrays.asList("CS201", "CS202")
+);
+
+Output - Any of:
+
+[CS101, CS102, CS201, CS202]
+
+[CS201, CS202, CS101, CS102]
+
+[CS101, CS201, CS102, CS202] (As long as CS101 is before CS102, and CS201 is before CS202)
+
+Case 7: 
+
+List<String> courses = Arrays.asList("CS101", "CS102", "CS103", "CS104", "CS105");
+
+List<List<String>> prerequisites = Arrays.asList(
+    Arrays.asList("CS101", "CS102"),
+    Arrays.asList("CS102", "CS103"),
+    Arrays.asList("CS104", "CS105")
+);
+
+Expected Output - Any valid topological order where:
+
+CS101 → CS102 → CS103
+
+CS104 → CS105
+
+(e.g. [CS101, CS102, CS103, CS104, CS105] or [CS104, CS105, CS101, CS102, CS103])
+
