@@ -21,20 +21,45 @@ public class GradeAnalyzer {
         }
     }
 
+    public static void printSubjectStats(List<Student> students, String subject) {
+        int total = 0;
+        int numStudents = 0;
+        String topStudent = "";
+        int max = Integer.MIN_VALUE;
+
+        for (Student s : students) {
+            int grade = s.getGrade(subject);
+            total += grade;
+            numStudents++;
+            if (grade > max) {
+                max = grade;
+                topStudent = s.name;
+            }
+        }
+
+        double average = total / numStudents;
+
+        System.out.println("Subject: " + subject);
+        System.out.println("Average Grade: " + average);
+        System.out.println("Top Student: " + topStudent + " (" + max + ")");
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         List<Student> students = new ArrayList<>();
 
         try {
+            if (args.length != 1){
+                System.out.println("Make sure to pass in a test case!");
+                System.exit(0);
 
-            Scanner scan = new Scanner(System.in);
-            String in = scan.nextLine();
-            scan.close();
-            
-            File file = new File("cases/" + in);
-            Scanner input = new Scanner(file);
+            }
 
+            File file = new File("cases/" + args[0]);
+            Scanner input = new Scanner(file);                        
             while (input.hasNextLine()) {
                 String line = input.nextLine();
+                System.out.println(line);
                 String[] words = line.split("\\s+");
                 if (words.length > 0){
                     String name = words[0];
@@ -55,27 +80,8 @@ public class GradeAnalyzer {
 
         printSubjectStats(students, "Math");
         printSubjectStats(students, "English");
+        printSubjectStats(students, "Science");
     }
 
-    public static void printSubjectStats(List<Student> students, String subject) {
-        int total = 0;
-        String topStudent = "";
-        int max = Integer.MIN_VALUE;
-
-        for (Student s : students) {
-            int grade = s.getGrade(subject);
-            total += grade;
-            if (grade > max) {
-                max = grade;
-                topStudent = s.name;
-            }
-        }
-
-        double average = total / students.size();
-
-        System.out.println("Subject: " + subject);
-        System.out.println("Average Grade: " + average);
-        System.out.println("Top Student: " + topStudent + " (" + max + ")");
-        System.out.println();
-    }
+    
 }
