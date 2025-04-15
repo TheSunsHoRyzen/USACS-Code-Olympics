@@ -1,0 +1,11 @@
+Subject: Math
+Average Grade: 87.0
+Top Student(s): Fernando (91)
+
+Subject: English
+Average Grade: 87.0
+Top Student(s): Micheal (95)
+
+Subject: Science
+Average Grade: 67.0
+Top Student(s): Lewis, Micheal (90)
